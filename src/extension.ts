@@ -6,6 +6,7 @@ import * as vscode from 'vscode';
 import WordCounter from './word-counter';
 import WordCounterController from './word-counter-controller';
 import Email from './email';
+import { SmtpConfiguration } from './interface';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -16,20 +17,18 @@ export function activate(context: vscode.ExtensionContext) {
 
     let wordCounter = new WordCounter();
     let controller = new WordCounterController(wordCounter);
-    const email = new Email({
-        user: "geekchenlingyun@outlook.com",
-        password: "pkklsrmypfkjtmcz",
-        host: "smtp-mail.outlook.com"
-    });
+    const email = new Email(vscode.workspace.getConfiguration("markdown-mail").get("account") as SmtpConfiguration);
     const emailDisposable = vscode.commands.registerCommand('extension.sendMarkDownEmail', () => {
         email.send();
-    })
-
-
+    });
     context.subscriptions.push(wordCounter);
     context.subscriptions.push(controller);
     context.subscriptions.push(emailDisposable);
 }
+
+process.on('uncaughtException', (err) => {
+    vscode.window.showErrorMessage(err);
+});
 
 // this method is called when your extension is deactivated
 export function deactivate() {

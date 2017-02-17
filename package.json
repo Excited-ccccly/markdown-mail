@@ -21,7 +21,32 @@
         "command": "extension.sendMarkDownEmail",
         "title": "Send"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "markdown-mail",
+      "properties": {
+        "markdown-mail.account": {
+          "type": "object",
+          "default": {
+            "user": "geekchenlingyun@outlook.com",
+            "password": "ebxktyxtkmqsfvkd",
+            "host": "smtp-mail.outlook.com",
+            "tls": { "ciphers": "SSLv3"}
+          },
+          "description": "Configure mail login"
+        },
+        "markdown-mail.email": {
+          "type": "object",
+          "default": {
+            "from": "Excited ccccly <geekchenlingyun@outlook.com>",
+            "to": "171764847@qq.com",
+            "cc": "",
+            "subject": "test"
+          }
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",

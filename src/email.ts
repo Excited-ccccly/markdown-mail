@@ -1,22 +1,14 @@
-import { window } from 'vscode';
-import email from 'emailjs';
+import { window, workspace } from 'vscode';
+const email = require('emailjs');
 import MarkDown from './markdown';
 import { TlsConfiguration, SmtpConfiguration, EmailConfiguration } from './interface';
 
 
 export default class Email {
-    private _username: String;
-    private _password: String;
-    private _smtpHost: String;
-    private _tls: TlsConfiguration;
-    private _server: email.server;
+    private _server;
     private _markdownRender;
 
     constructor(smtpConfiguration: SmtpConfiguration) {
-        this._username = smtpConfiguration.user;
-        this._password = smtpConfiguration.password;
-        this._smtpHost = smtpConfiguration.host;
-        this._tls = { ciphers: 'SSLv3' };
         this._server = email.server.connect(smtpConfiguration);
         this._markdownRender = new MarkDown();
     }
@@ -29,24 +21,18 @@ export default class Email {
         }
         const doc = editor.document;
         if (doc.isDirty) {
-            window.showErrorMessage("文档未保存");
+            throw "文档未保存"
+        }
+        if (doc.isUntitled) {
+            throw "请先保存为 markdown ";
         }
         const content = doc.getText();
-        const fileNameAsEmailSubject = doc.fileName;
         const html = this._markdownRender.renderMarkdownToHtml(content);
-        const emailContent: EmailConfiguration = {
-            text: "i hope this works",
-            from: "Excited ccccly <geekchenlingyun@outlook.com>",
-            to: "171764847@qq.com",
-            cc: "",
-            subject: fileNameAsEmailSubject,
-            attachment:
-            [
-                { data: html,  alternative: true },
-            ]
-        }
+        const emailContent = workspace.getConfiguration("markdown-mail").get("email") as EmailConfiguration;
+        emailContent.attachment = [{ data: html,  alternative: true }];
         this._server.send(emailContent, (err: Error, message: String) => {
-            console.log(err || message);
+            if (err) throw err;
+            window.showInformationMessage(`邮件已发送至${emailContent.to}`);
         });
     }
 }

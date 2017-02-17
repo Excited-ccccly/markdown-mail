@@ -35,15 +35,14 @@ export default class WordCounter {
     public _getWordCount(doc: TextDocument): number {
 
         let docContent = doc.getText();
-
-        // Parse out unwanted whitespace so the split is accurate
+        let cnWordCounter = docContent.match(/[\u4E00-\u9FA5]/g) || [];
+        docContent = docContent.replace(/[\u4E00-\u9FA5]/g, '');
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
         if (docContent != "") {
-            wordCount = docContent.split(" ").length;
+            wordCount = docContent.split(" ").length + cnWordCounter.length;
         }
-
         return wordCount;
     }
 

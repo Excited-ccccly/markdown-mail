@@ -1,4 +1,4 @@
-import MarkdownIt from 'markdown-it';
+const MarkdownIt = require('markdown-it');
 import hljs from 'highlight.js';
 
 export default class MarkDown {
