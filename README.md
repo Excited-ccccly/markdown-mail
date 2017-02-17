@@ -1,65 +1,59 @@
 # markdown-mail README
 
-This is the README for your extension "markdown-mail". After writing up a brief description, we recommend including the following sections.
+**Markdown Mail! Make mail Great Again!** Just write with Markdown and
+type "**ctrl+shift+p**" (Mac: '**cmd+shift+p**'), which brings up the 
+**Command Palette**. From here, you type "**send**" and select "**Send My Email**"
+and you are good to go. A few seconds later, your email should arrive destination.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### WordCount
+  More accurate! Support Chinese!
 
-For example if there is an image subfolder under your extension project workspace:
+![WordCount](resources/word-count.png)
 
-\!\[feature X\]\(images/feature-x.png\)
+### Markdown and Send!
+  Write your email leverage the power of markdown and send the email to your friend.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![send](resources/send.png)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* You should have **a email account of which stmp service is avaliable**.
+
+  Currently, this extension support **outlook**, **hotmail**, **gmail**, **163**, **126**
+  and most importantly, **ecnu**( email service provided by my school🙇 )
+
+* If your service (ex: gmail) uses **two-step authentication**, use an application specific password
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
+* `markdown-mail.account`: Config your email account. Such as:
+```
+{
+  "user": "username@your-email.com",
+  "password": "your password"
+}
+```
+* `markdown-mail.email`: Everytime your want send a email, config your email first!
+Sorry for this inconvenience, but I have to know whom you want to send to? what subject? And maybe cc 😀
+```
+{
+  "to": "171764847@qq.com",
+  "subject": "test emailjs"
+  "cc": "",
+}
+```
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Sent Email may be regarded as junk mail and rejected.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Initial release. Basicly function but enough
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+----------------------------------------------
 
 **Enjoy!**

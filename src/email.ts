@@ -1,14 +1,13 @@
 import { window, workspace } from 'vscode';
 const email = require('emailjs');
 import MarkDown from './markdown';
-import { TlsConfiguration, SmtpConfiguration, EmailConfiguration } from './interface';
-
+import { EmailConnectionConfig, EmailContentConfig, AccountConfig } from './interface';
 
 export default class Email {
     private _server;
     private _markdownRender;
 
-    constructor(smtpConfiguration: SmtpConfiguration) {
+    constructor(smtpConfiguration: EmailConnectionConfig) {
         this._server = email.server.connect(smtpConfiguration);
         this._markdownRender = new MarkDown();
     }
@@ -24,15 +23,21 @@ export default class Email {
             throw "文档未保存"
         }
         if (doc.isUntitled) {
-            throw "请先保存为 markdown ";
+            throw "请先保存为 markdown 文件";
         }
         const content = doc.getText();
         const html = this._markdownRender.renderMarkdownToHtml(content);
-        const emailContent = workspace.getConfiguration("markdown-mail").get("email") as EmailConfiguration;
+        const emailContent: EmailContentConfig = workspace.getConfiguration("markdown-mail").get("email") as EmailContentConfig;
+        const accountConfig: AccountConfig = workspace.getConfiguration("markdown-mail").get("account") as AccountConfig;
+        emailContent.from = getUserFromAccountConfig(accountConfig);
         emailContent.attachment = [{ data: html,  alternative: true }];
         this._server.send(emailContent, (err: Error, message: String) => {
             if (err) throw err;
-            window.showInformationMessage(`邮件已发送至${emailContent.to}`);
+            window.setStatusBarMessage(`邮件已发送至${emailContent.to}`, 2000);
         });
     }
+}
+
+function getUserFromAccountConfig(accountConfig: AccountConfig) : String {
+    return `${accountConfig["user"].split('@')[0]} <${accountConfig["user"]}>`;
 }

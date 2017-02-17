@@ -4,6 +4,18 @@
   "description": "Using markdown to write your email and send！",
   "version": "0.0.1",
   "publisher": "ccccly",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Excited-ccccly/markdown-mail.git"
+  },
+  "keywords": [
+    "markdown", "email", "word count"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Excited-ccccly/markdown-mail/issues"
+  },
+  "homepage": "https://github.com/Excited-ccccly/markdown-mail#readme",
   "engines": {
     "vscode": "^1.5.0"
   },
@@ -19,7 +31,7 @@
     "commands": [
       {
         "command": "extension.sendMarkDownEmail",
-        "title": "Send"
+        "title": "Send My Email!"
       }
     ],
     "configuration": {
@@ -29,21 +41,20 @@
         "markdown-mail.account": {
           "type": "object",
           "default": {
-            "user": "geekchenlingyun@outlook.com",
-            "password": "ebxktyxtkmqsfvkd",
-            "host": "smtp-mail.outlook.com",
-            "tls": { "ciphers": "SSLv3"}
+            "user": "excitedccccly@126.com",
+            "password": "cly123456"
           },
           "description": "Configure mail login"
         },
         "markdown-mail.email": {
           "type": "object",
           "default": {
-            "from": "Excited ccccly <geekchenlingyun@outlook.com>",
+            "text": "i hope this work",
             "to": "171764847@qq.com",
             "cc": "",
-            "subject": "test"
-          }
+            "subject": "test emailjs"
+          },
+          "description": "Configure mail content"
         }
       }
     }

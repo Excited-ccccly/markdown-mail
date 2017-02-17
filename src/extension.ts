@@ -6,7 +6,8 @@ import * as vscode from 'vscode';
 import WordCounter from './word-counter';
 import WordCounterController from './word-counter-controller';
 import Email from './email';
-import { SmtpConfiguration } from './interface';
+import { EmailConnectionConfig, AccountConfig, SmtpConfig } from './interface';
+import getSmtpConfig from './smtp-config'
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -17,8 +18,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     let wordCounter = new WordCounter();
     let controller = new WordCounterController(wordCounter);
-    const email = new Email(vscode.workspace.getConfiguration("markdown-mail").get("account") as SmtpConfiguration);
+    const accountConfig: AccountConfig = vscode.workspace.getConfiguration("markdown-mail").get("account") as AccountConfig;
+    const smtpConfig: SmtpConfig = getSmtpConfig(accountConfig["user"] as String) as SmtpConfig;
+    const emailConnectionConfig: EmailConnectionConfig = Object.assign({}, accountConfig, smtpConfig) as EmailConnectionConfig;
+    const email = new Email(emailConnectionConfig);
     const emailDisposable = vscode.commands.registerCommand('extension.sendMarkDownEmail', () => {
+        vscode.window.setStatusBarMessage('正在发送...', 5000)
         email.send();
     });
     context.subscriptions.push(wordCounter);

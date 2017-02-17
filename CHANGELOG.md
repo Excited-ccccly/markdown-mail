@@ -5,3 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 - Initial release
+
+  ### Added
+
+  Using this extension, you can write your email with markdown and send !
+
+  Support outlook, gmail, 163, 126 and ecnu( email service provided by my school^_^ )
