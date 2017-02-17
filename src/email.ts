@@ -20,10 +20,12 @@ export default class Email {
         }
         const doc = editor.document;
         if (doc.isDirty) {
-            throw "文档未保存"
+            window.showErrorMessage('文档未保存');
+            return;
         }
         if (doc.isUntitled) {
-            throw "请先保存为 markdown 文件";
+            window.showErrorMessage('请先保存为 markdown 文件');
+            return;
         }
         const content = doc.getText();
         const html = this._markdownRender.renderMarkdownToHtml(content);
@@ -31,8 +33,12 @@ export default class Email {
         const accountConfig: AccountConfig = workspace.getConfiguration("markdown-mail").get("account") as AccountConfig;
         emailContent.from = getUserFromAccountConfig(accountConfig);
         emailContent.attachment = [{ data: html,  alternative: true }];
+        window.setStatusBarMessage('正在发送...', 5000);
         this._server.send(emailContent, (err: Error, message: String) => {
-            if (err) throw err;
+            if (err) {
+                window.setStatusBarMessage('发送失败,请查看扩展配置', 2000);
+                return;
+            }
             window.setStatusBarMessage(`邮件已发送至${emailContent.to}`, 2000);
         });
     }

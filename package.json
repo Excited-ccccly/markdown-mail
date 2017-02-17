@@ -2,14 +2,16 @@
   "name": "markdown-mail",
   "displayName": "markdown-mail",
   "description": "Using markdown to write your email and send！",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "ccccly",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Excited-ccccly/markdown-mail.git"
   },
   "keywords": [
-    "markdown", "email", "word count"
+    "markdown",
+    "email",
+    "word count"
   ],
   "license": "MIT",
   "bugs": {
@@ -41,20 +43,19 @@
         "markdown-mail.account": {
           "type": "object",
           "default": {
-            "user": "excitedccccly@126.com",
-            "password": "cly123456"
+            "user": "username@your-email.com",
+            "password": "your-password"
           },
-          "description": "Configure mail login"
+          "description": "Configure email login"
         },
         "markdown-mail.email": {
           "type": "object",
           "default": {
-            "text": "i hope this work",
-            "to": "171764847@qq.com",
-            "cc": "",
+            "to": "username@destination.com",
+            "cc": "cc@destination", 
             "subject": "test emailjs"
           },
-          "description": "Configure mail content"
+          "description": "Configure email setting"
         }
       }
     }

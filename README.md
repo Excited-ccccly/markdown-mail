@@ -1,9 +1,11 @@
-# markdown-mail README
+# Markdown Mail README
 
-**Markdown Mail! Make mail Great Again!** Just write with Markdown and
+**Markdown Mail! Make mail Great Again!**Just write with Markdown and
 type "**ctrl+shift+p**" (Mac: '**cmd+shift+p**'), which brings up the 
 **Command Palette**. From here, you type "**send**" and select "**Send My Email**"
 and you are good to go. A few seconds later, your email should arrive destination.
+
+First of all.Config your email accout and email setting! [See Here](#Settings)
 
 ## Features
 
@@ -26,7 +28,11 @@ and you are good to go. A few seconds later, your email should arrive destinatio
 
 * If your service (ex: gmail) uses **two-step authentication**, use an application specific password
 
-## Extension Settings
+<h2 id="Settings">Extension Settings</h2>
+
+Open your workspace setting in '**./vscode/settings.json**' or config vscode's user setting globally
+
+![Extension Config](resources/extension-config.png)
 
 * `markdown-mail.account`: Config your email account. Such as:
 ```
@@ -39,9 +45,9 @@ and you are good to go. A few seconds later, your email should arrive destinatio
 Sorry for this inconvenience, but I have to know whom you want to send to? what subject? And maybe cc 😀
 ```
 {
-  "to": "171764847@qq.com",
-  "subject": "test emailjs"
-  "cc": "",
+  "to": "username@destination.com",
+  "subject": "test emailjs",
+  "cc": "cc@destination" // optinal
 }
 ```
 ## Known Issues

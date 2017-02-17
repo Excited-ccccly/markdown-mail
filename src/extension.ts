@@ -23,7 +23,6 @@ export function activate(context: vscode.ExtensionContext) {
     const emailConnectionConfig: EmailConnectionConfig = Object.assign({}, accountConfig, smtpConfig) as EmailConnectionConfig;
     const email = new Email(emailConnectionConfig);
     const emailDisposable = vscode.commands.registerCommand('extension.sendMarkDownEmail', () => {
-        vscode.window.setStatusBarMessage('正在发送...', 5000)
         email.send();
     });
     context.subscriptions.push(wordCounter);
@@ -32,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 process.on('uncaughtException', (err) => {
-    vscode.window.showErrorMessage(err);
+    vscode.window.setStatusBarMessage('发送失败,请查看扩展配置', 2000);
 });
 
 // this method is called when your extension is deactivated
