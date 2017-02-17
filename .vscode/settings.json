@@ -13,6 +13,6 @@
     "markdown-mail.email": {
         "to": "username@destination.com",
         "cc": "cc@destination",
-        "subject": "test emailjs"
+        "subject": "test markdown-mail"
     }
 }

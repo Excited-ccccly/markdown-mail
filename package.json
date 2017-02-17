@@ -53,7 +53,7 @@
           "default": {
             "to": "username@destination.com",
             "cc": "cc@destination", 
-            "subject": "test emailjs"
+            "subject": "test markdown-mail"
           },
           "description": "Configure email setting"
         }
