@@ -35,14 +35,17 @@ Open your workspace setting in '**./vscode/settings.json**' or vscode's user set
 ![Extension Config](resources/extension-config.png)
 Add Configuration shown in figure above
   * `markdown-mail.account`: Config your email account. Such as:
+
   ```
   {
     "user": "username@your-email.com",
     "password": "your-password"
   }
   ```
+
   * `markdown-mail.email`: Everytime your want send a email, config your email first!
   Sorry for this inconvenience, but I have to know whom you want to send to, what subject, and maybe cc. 😀
+
   ```
   {
     "to": "username@destination.com",
@@ -50,6 +53,7 @@ Add Configuration shown in figure above
     "cc": "cc@destination" // optional
   }
   ```
+  
 ## Known Issues
 
 Sent Email may be regarded as junk mail and rejected.
