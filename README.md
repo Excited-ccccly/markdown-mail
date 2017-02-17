@@ -30,11 +30,10 @@ First of all. Config your email accout and email setting! [See Here](#Settings)
 
 <h2 id="Settings">Extension Settings</h2>
 
->Open your workspace setting in '**./vscode/settings.json**' or vscode's user setting globally
+Open your workspace setting in '**./vscode/settings.json**' or vscode's user setting globally
 
 ![Extension Config](resources/extension-config.png)
-
->> Add Configuration shown in figure above
+Add Configuration shown in figure above
   * `markdown-mail.account`: Config your email account. Such as:
   ```
   {
