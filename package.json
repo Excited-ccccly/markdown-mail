@@ -3,7 +3,7 @@
     "displayName": "markdown-mail",
     "description": "Using markdown to write your email and send！",
     "icon": "resources/mail-send.svg",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "publisher": "ccccly",
     "repository": {
         "type": "git",
@@ -53,7 +53,6 @@
                     "type": "object",
                     "default": {
                         "to": "username@destination.com",
-                        "cc": "cc@destination",
                         "subject": "test markdown-mail"
                     },
                     "description": "Configure email setting"
