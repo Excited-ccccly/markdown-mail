@@ -1,5 +1,6 @@
 import WordCounter from './word-counter';
 import { Disposable, window } from 'vscode';
+
 export default class WordCounterController {
 
     private _wordCounter: WordCounter;

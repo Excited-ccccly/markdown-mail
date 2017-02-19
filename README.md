@@ -64,11 +64,13 @@ Add Configuration shown in figure above
   
 ## Known Issues
 
-Sent Email may be regarded as junk mail and rejected.
+Sent Email may be regarded as junk mail and be rejected.
+
+Code Block won't be highlighted if the email service provider doesn't support highlight.js.
 
 ## Contributing
 
-**Everything is welcome.**
+Everything is welcome.
 
 ## Release Notes
 

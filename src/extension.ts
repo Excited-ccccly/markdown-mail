@@ -8,6 +8,7 @@ import WordCounterController from './word-counter-controller';
 import Email from './email';
 import { EmailConnectionConfig, AccountConfig, SmtpConfig } from './interface';
 import getSmtpConfig from './smtp-config'
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {

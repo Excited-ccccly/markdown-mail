@@ -27,8 +27,19 @@ We pass the function containing the implementation of the command as the second 
 * you can open the full set of our API when you open the file `node_modules/vscode/vscode.d.ts`
 
 <h2 id="Packaging"> Packaging Extensions</h2>
+
+### Install vsce
+
 You may want to simply package extensions without publishing them to the store. Extensions will always be packaged into a **.vsix** file. Here's how:
-```
-vsce package
-```
-This will package your extension into a **.vsix** file and place it in the current directory. It's possible to install **.vsix** files into Visual Studio Code. See [Installing Extensions](http://code.visualstudio.com/docs/extensions/install-extension) for more details.
+
+* Install vsce:
+
+  Make sure you have [Node.js](https://nodejs.org/) installed. Then simply run:
+  ```
+  npm install -g vsce
+  ```
+* Package
+  ```
+  vsce package
+  ```
+  This will package your extension into a **.vsix** file and place it in the current directory. It's possible to install **.vsix** files into Visual Studio Code. See [Installing Extensions](http://code.visualstudio.com/docs/extensions/install-extension) for more details.

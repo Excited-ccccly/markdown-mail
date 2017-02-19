@@ -1,7 +1,7 @@
 import { window, workspace } from 'vscode';
-const email = require('emailjs');
 import MarkDown from './markdown';
 import { EmailConnectionConfig, EmailContentConfig, AccountConfig } from './interface';
+const email = require('emailjs');
 
 export default class Email {
     private _server;
@@ -36,7 +36,7 @@ export default class Email {
         }
         emailContent.from = getUserFromAccountConfig(accountConfig);
         emailContent.attachment = [{ data: html, alternative: true }];
-        window.setStatusBarMessage('正在发送...', 5000);
+        window.setStatusBarMessage('正在发送...', 2000);
         this._server.send(emailContent, (err: Error, message: String) => {
             if (err) {
                 window.setStatusBarMessage('发送失败,请查看扩展配置', 2000);
