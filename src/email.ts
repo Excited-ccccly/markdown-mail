@@ -31,8 +31,11 @@ export default class Email {
         const html = this._markdownRender.renderMarkdownToHtml(content);
         const emailContent: EmailContentConfig = workspace.getConfiguration("markdown-mail").get("email") as EmailContentConfig;
         const accountConfig: AccountConfig = workspace.getConfiguration("markdown-mail").get("account") as AccountConfig;
+        if (validateAccountConfig(accountConfig)) {
+            window.showErrorMessage('请先到工作区设置或用户设置中配置 email 账号');
+        }
         emailContent.from = getUserFromAccountConfig(accountConfig);
-        emailContent.attachment = [{ data: html,  alternative: true }];
+        emailContent.attachment = [{ data: html, alternative: true }];
         window.setStatusBarMessage('正在发送...', 5000);
         this._server.send(emailContent, (err: Error, message: String) => {
             if (err) {
@@ -44,6 +47,12 @@ export default class Email {
     }
 }
 
-function getUserFromAccountConfig(accountConfig: AccountConfig) : String {
+function getUserFromAccountConfig(accountConfig: AccountConfig): String {
     return `${accountConfig["user"].split('@')[0]} <${accountConfig["user"]}>`;
 }
+
+function validateAccountConfig(accountConfig: AccountConfig): Boolean {
+    return accountConfig["user"] === "username@your-email.com";
+}
+
+

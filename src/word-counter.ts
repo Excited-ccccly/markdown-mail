@@ -27,7 +27,7 @@ export default class WordCounter {
             // Update the status bar
             this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
             this._statusBarItem.show();
-        } else { 
+        } else {
             this._statusBarItem.hide();
         }
     }

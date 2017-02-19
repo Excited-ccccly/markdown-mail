@@ -5,9 +5,17 @@ type "**ctrl+shift+p**" (Mac: '**cmd+shift+p**'), which brings up the
 **Command Palette**. From here, you type "**send**" and select "**Send My Email**"
 and you are good to go. A few seconds later, your email should arrive destination.
 
-First of all. Config your email accout and email setting! [See Here](#Settings)
+First of all. **Config** your email accout and email setting! [See Here](#Settings)
+
+If you see this at **github**, you can build&install this extension according to [vsc-extension-quickstart](vsc-extension-quickstart.md#Packaging)
+
+Or you can simply search and download **markdown-mail** at vscode extension management panel according to this [manual](http://code.visualstudio.com/docs/extensions/install-extension)
 
 ## Features
+
+### Open Source!
+
+See at [Github](https://github.com/Excited-ccccly/markdown-mail)
 
 ### WordCount
   More accurate! Support Chinese!
@@ -57,6 +65,10 @@ Add Configuration shown in figure above
 ## Known Issues
 
 Sent Email may be regarded as junk mail and rejected.
+
+## Contributing
+
+**Everything is welcome.**
 
 ## Release Notes
 

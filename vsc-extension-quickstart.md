@@ -13,7 +13,9 @@ We pass the function containing the implementation of the command as the second 
 
 ## Get up and running straight away
 * press `F5` to open a new window with your extension loaded
-* run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`
+* open a markdown file
+* config your email account and email setting according to [Extension Settings](README.md#Settings)
+* run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Send My Email`
 * set breakpoints in your code inside `src/extension.ts` to debug your extension
 * find output from your extension in the debug console
 
@@ -24,10 +26,9 @@ We pass the function containing the implementation of the command as the second 
 ## Explore the API
 * you can open the full set of our API when you open the file `node_modules/vscode/vscode.d.ts`
 
-## Run tests
-* open the debug viewlet (`Ctrl+Shift+D` or `Cmd+Shift+D` on Mac) and from the launch configuration dropdown pick `Launch Tests`
-* press `F5` to run the tests in a new window with your extension loaded
-* see the output of the test result in the debug console
-* make changes to `test/extension.test.ts` or create new test files inside the `test` folder
-    * by convention, the test runner will only consider files matching the name pattern `**.test.ts`
-    * you can create folders inside the `test` folder to structure your tests any way you want
+<h2 id="Packaging"> Packaging Extensions</h2>
+You may want to simply package extensions without publishing them to the store. Extensions will always be packaged into a **.vsix** file. Here's how:
+```
+vsce package
+```
+This will package your extension into a **.vsix** file and place it in the current directory. It's possible to install **.vsix** files into Visual Studio Code. See [Installing Extensions](http://code.visualstudio.com/docs/extensions/install-extension) for more details.

@@ -5,7 +5,7 @@ const config = {
   },
   "qq": {
     "host": "smtp.qq.com",
-    "ssl": "true" 
+    "ssl": "true"
   },
   "163": {
     "host": "smtp.163.com",
@@ -26,7 +26,7 @@ const config = {
 }
 
 function getSmtpConfig(emailAddress: String) {
-  const domain:String = emailAddress.split('@')[1].split('.')[0]; 
+  const domain: String = emailAddress.split('@')[1].split('.')[0];
   return config[`${domain}`];
 }
 
