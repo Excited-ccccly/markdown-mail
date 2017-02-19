@@ -31,7 +31,7 @@ See at [Github](https://github.com/Excited-ccccly/markdown-mail)
 
 * You should have **a email account of which stmp service is avaliable**.
 
-  Currently, this extension support **outlook**, **hotmail**, **gmail**, **163**, **126**
+  Currently, this extension support **outlook**, **hotmail**, **gmail**, **qq**, **163**, **126**
   and most importantly, **ecnu**( email service provided by my school🙇 )
 
 * If your service (ex: gmail) uses **two-step authentication**, use an application specific password

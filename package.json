@@ -3,7 +3,7 @@
     "displayName": "markdown-mail",
     "description": "Using markdown to write your email and send！",
     "icon": "resources/mail-send.svg",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "publisher": "ccccly",
     "repository": {
         "type": "git",
